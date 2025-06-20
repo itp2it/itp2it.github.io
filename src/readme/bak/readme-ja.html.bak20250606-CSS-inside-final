@@ -1,0 +1,624 @@
+﻿<!DOCTYPE html>
+
+<html lang="ja"> <!-- lang="en">
+
+
+
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="../en/kbd/assets/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="../en/kbd/assets/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="../en/kbd/assets/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="../en/kbd/assets/fontawesome/css/regular.min.css" rel="stylesheet">
+
+    <title>FFXIV Unicode Typer マニュアル</title>
+
+
+
+    <!-- CSS -->
+    <style>
+        /* ここにスタイルを記述します */
+
+        body {
+            /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; */
+            font-family: 'Courier New', monospace;
+            /* 等幅フォントに変更 */
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #eee;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 80px);
+            /* フッターの高さ分を引く */
+            overflow-y: auto;
+            /* コンテンツが溢れたらスクロール */
+            border: 2px solid cyan;
+            /* シアンの枠線 */
+            box-shadow: 0 0 10px cyan;
+            /* シアンの光彩 */
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            /* container内で伸び縮み */
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .top-info {
+            background-color: #f8f8f8;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            padding-right: 20px;
+        }
+
+        .body-section {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .body-left {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .body-right {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .notification-section {
+            background-color: #9a036d;
+            color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .support-section {
+            background-color: #422086;
+            color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .disclaimer-section {
+            background-color: #444;
+            color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            position: fixed;
+            /* 常に表示 */
+            bottom: 0;
+        }
+
+        .link-buttons {
+            margin-top: 10px;
+        }
+
+        .link-buttons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #444;
+        }
+
+        .link-buttons a:hover {
+            background-color: #555;
+        }
+
+
+
+        h1 {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            text-shadow: 0 0 5px magenta;
+            /* マゼンタの文字光彩 */
+        }
+
+        h2 {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1.5em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            text-shadow: 0 0 5px magenta;
+            /* マゼンタの文字光彩 */
+        }
+
+
+        h3 {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1.17em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        h4 {
+            font-size: 1em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        h5 {
+            font-size: 0.83em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        h6 {
+            font-size: 0.67em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+    </style>
+
+
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const headings = document.querySelectorAll('h1, h2, h3');
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+
+            let toc = '<h3>目次</h3>';
+
+            headings.forEach(heading => {
+                const level = parseInt(heading.tagName.substring(1));
+                const indent = '&nbsp;'.repeat(level * 2);
+                const id = heading.id = heading.id || `section-${Math.random().toString(36).substr(2, 9)}`;
+                toc += `<a href="#${id}">${indent}${heading.textContent}</a><br>`;
+            });
+
+            sidebar.innerHTML = toc;
+
+            // 各セクションへのスクロール処理
+            const sidebarLinks = sidebar.querySelectorAll('a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const headerOffset = document.querySelector('.header').offsetHeight;
+                        const elementPosition = targetElement.offsetTop - headerOffset - 20;
+                        window.scrollTo({
+                            top: elementPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+
+
+<!-- body -->
+
+<body>
+
+    <!-- container -->
+    <div class="container">
+
+        <!-- header -->
+        <div class="header">
+            <h1>[ FFXIV Unicode Typer ] マニュアル</h1>
+        </div>
+
+        <!-- top-info -->
+        <div class="top-info">
+
+            <h2> 1. [ FFXIV Unicode Typer ] とは </h2>
+
+            <br>
+
+            <!--
+            <p>This tool is designed to easily input special characters used in Final Fantasy XIV (FF14).</p>
+
+            <p>These special FF14 characters are located in the Unicode Private Use Area, meaning they will only display
+                correctly within environments where the FF14 font is applied, such as in the game itself or on the
+                Lodestone website.</p>
+
+            <p>By using this tool, you can visually select special characters and easily copy and paste them. This
+                eliminates the frustration of garbled text in environments where the font is not applied, providing a
+                smooth input experience.</p>
+             -->
+
+            <p>本ツールは、FF14 で使用される特殊文字を簡単に入力するためのツールです。</p>
+            <br>
+            <p>FF14 の特殊文字は Unicode の私用領域 (Private Use Area) に配置されており、</p>
+            <p>ゲーム内や Lodestone など、FF14 のフォントが適用される環境でのみ正しく表示されます。</p>
+            <br>
+            <p>本ツールを使うことで、特殊文字を視覚的に選択し、簡単にコピー＆ペーストが出来、</p>
+            <p>フォントが適用されない環境での文字化けに悩むことなく、スムーズな入力をサポートします。</p>
+
+            <br>
+
+            <!-- トップ画像 (サイト全体のイメージ) -->
+            <img src="./pics/top-pic.png" alt="top-pic-long" size="75%>
+        </div>
+
+
+        <div class=" content-wrapper">
+
+            <div class="main-content">
+
+                <!-- body-section [その1] -->
+                <div class="body-section">
+
+                    <!-- body左側 -->
+                    <!--
+                    <div class="body-left">
+                    </div>
+                    -->
+
+
+                    <!-- body右側 -->
+                    <div class="body-right">
+
+                        <hr width="100%">
+
+                        <h2> 2. 基本的な使い方 </h2>
+
+                        <hr width="100%">
+
+                        <h3> 2-1 文字を選択 </h3>
+                        <p>画面に表示されたパネルから、入力したい文字を選択します。</p>
+
+                        <img src="./pics/2-1.png" alt="select-character" width="50%>
+
+     			    <hr width=" 100%">
+
+                        <h3> 2-2 プレビュー </h3>
+                        <p>選択した文字がプレビュー欄に表示されます。</p>
+
+                        <img src="./pics/2-2.png" alt="preview" width="50%>
+
+			        <hr width=" 100%">
+                        <h3> 2-3 編集 </h3>
+
+                        <table border="1" style="border-collapse: collapse" align="center">
+
+                            <tr>
+                                <td><b>【Backspace】</b></td>
+                                <td>プレビュー欄の文字を一字ずつ削除します。</td>
+                            </tr>
+                            <tr>
+                                <td><b>【Clear】</b></td>
+                                <td>プレビュー欄の文字列を全てまとめて消去します。</td>
+                            </tr>
+                            <tr>
+                                <td><b>【Space】</b></td>
+                                <td>半角スペースを挿入します。</td>
+                            </tr>
+                            <tr>
+                                <td><b>【Copy】</b></td>
+                                <td>プレビュー欄に表示された文字列をクリップボードにコピーします。</td>
+                            </tr>
+                        </table>
+
+                        <br>
+
+                        <!--
+                        <h4> 【Backspace】：プレビュー欄の文字を一字ずつ削除します。</h4>
+
+                        <h4> 【Clear】：プレビュー欄の文字列を全てまとめて消去します。</h4>
+
+                        <h4> 【Space】：半角スペースを挿入します。</h4>
+
+                        <h4> 【Copy】：プレビュー欄に表示された文字列をクリップボードにコピーします。</h4>
+                        -->
+
+                        <br>
+
+                        <img src="./pics/2-3.png" alt="control">
+
+                        <p> ※ コピーが成功すると以下のウインドウが表示されます。(自動で閉じます)</p>
+
+                        <img src="./pics/2-4.png" alt="copy-ok">
+
+
+                        <hr width="100%">
+                        <h3> 2-4 貼り付け </h3>
+                        <br>
+                        <p>コピーした文字列を、ゲーム内のチャット欄や、ポータルサイト「LodeStone」の自己紹介欄、日記などに貼り付けて使用します。</p>
+
+
+                        <br>
+                        <br>
+
+
+                        <h4> ▼ 貼り付け例 ▼ </h4>
+
+                        <table border="1" style="border-collapse: collapse" align="center">
+                            <!-- style="border-color:#FF0000" -->
+                            <tr>
+                                <th colspan="2"> ****** <b>Lodestone</b> ****** </th>
+                            </tr>
+                            <tr>
+                                <th>[編集中]</th>
+                                <th>[編集後]</th>
+                            </tr>
+                            <tr>
+                                <td> <img src="./pics/editing.png" alt="editing"> </td>
+                                <td> <img src="./pics/edited.png" alt="edited"> </td>
+                            </tr>
+                        </table>
+
+
+                        <br>
+                        <br>
+
+
+                        <table border="1" style="border-collapse: collapse" align="center">
+                            <!-- style="border-color:#FF0000" -->
+                            <tr>
+                                <th colspan="2"> ****** <b>ゲーム内チャット欄</b> ****** </th>
+                            </tr>
+                            <tr>
+                                <th> <img src="./pics/ingame.png" alt="ingame"> </th>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </div>
+
+
+                <!-- body-section [その2] -->
+                <div class="body-section">
+
+                    <!-- body左側 -->
+                    <!--
+                    <div class="body-left">
+                    </div>
+                    -->
+
+
+                    <!-- body右側 -->
+                    <div class="body-right">
+
+                        <hr width="100%">
+
+                        <h2> 3. 各機能について </h2>
+
+                        <h3> 3-1 表示配列の選択 </h3>
+                        <p>画面右上にある ボタンの説明です。<br>
+                            お好みの配列を選択することで、より快適に文字を探すことができます。</p>
+
+
+                        <hr width="100%">
+                        <h4> (キーボード配列：PCモード ) </h4>
+                        <p> <b>[Keyboard]</b> を選択すると、文字パネルが一般的なキーボードの配列に近い順序で表示されます。</p>
+                        <p>※横幅 800px 以上を推奨。画面の小さい端末では表示が崩れます。</p>
+
+                        <img src="./pics/3-1-kbd.png" alt="kbd"><br><br>
+                        <img src="./pics/kbd-layout.png" alt="kbd-layout" width="80%">
+
+
+                        <hr width="100%">
+                        <h4> (アルファベット順：Mobileモード) </h4>
+                        <p> <b>[Alphabetical]</b> を選択すると、文字パネルがアルファベット順に表示されます。</p>
+
+                        <img src="./pics/3-1-alpha.png" alt="alpha"><br><br>
+                        <img src="./pics/alpha-layout.png" alt="alpha-layout" width="80%">
+
+
+                        <hr width="100%">
+                        <h3> 3-2 文字種の選択 </h3>
+                        <p>入力パネル上のボタンを切り替えることで、利用する文字の種類を変更できます。</p>
+
+                        <hr width="100%">
+                        <h4> [Alphanumeric] ボタン</h4>
+                        <p>：数字と一部の記号を表示します。</p>
+                        <p> ※上の "3-1" で選択した配列 が表示されます。</p>
+
+
+                        <img src="./pics/alphanumeric.png" alt="alphanumeric">
+
+
+                        <hr width="100%">
+                        <h4> [Symbols & Other] ボタン</h4>
+                        <p>：その他の記号と飾り付きの数字などを表示します。</p>
+
+                        <img src="./pics/simbolsandother.png" alt="simbolsandother"><br><br>
+                        <img src="./pics/symbols-layout.png" alt="symbols-layout" width="80%">
+
+
+                        <hr width="100%">
+                        <h3> 3-3 背景色の選択 </h3>
+                        <p>画面右下の <b>[BG Change]</b> のボタンを切り替えることで、利用する文字の種類を変更できます。その日の気分やお好み合わせてご利用ください。</p>
+
+                        <img src="./pics/3-3.png" alt="bg-change"><br>
+
+                        <p>以下の順番で切り替わります。各ロケーションをイメージした配色にしてみました。<br>
+
+                        <table border="1" align="center">
+                            <tr>
+                                <th>No</th>
+                                <th>Img Loc</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Solution 9</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>(Light Color)</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Limsa Lominsa</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Gridania or Ul'dah</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Crystarium</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Old Sharlayan</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Tuliyollal</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Il Mheg</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+
+                <br>
+                <hr width="100%">
+                <br>
+
+
+                <!-- notification-section -->
+                <div class="notification-section">
+                    <p>
+                        ■ 一部の特殊文字について ■
+                    </p>
+
+                    <p>以下の特殊文字については、Lodestone では表示されないことを確認しております。(Patch 7.25時点) </p>
+
+                    <img src="./pics/0-9-square.png" alt="0-9-square">
+
+                    <br>
+                    <br>
+
+                    <p>ゲーム内では表示されました。Lodestone では対象のフォントが読み込まれていないようです。</p>
+                        <table border="1" style="border-collapse: collapse" align="center" bgcolor="#fff8dc">
+                            <tr>
+                                <th><font color="black">[ゲーム内]</font></th>
+                                <th><font color="black">[Lodestone]</font></th>
+                            </tr>
+                            <tr>
+                                <td> <img src="./pics/0-9-square-ingame.png" alt="Loading"> </td>
+                                <td> <img src="./pics/0-9-square-lodestone.png" alt="Loading"> </td>
+                            </tr>
+                        </table>
+                    <br>
+                    <br>
+
+                    <p>その他の数字は問題ありませんでした。</p>
+                    
+                        <table border="1" style="border-collapse: collapse" align="center" bgcolor="#fff8dc">
+                            <tr>
+                                <th><font color="black">[ゲーム内]</font></th>
+                                <th><font color="black">[Lodestone]</font></th>
+                            </tr>
+                            <tr>
+                                <td> <img src="./pics/0-9-other-ingame.png" alt="Loading"> </td>
+                                <td> <img src="./pics/0-9-other-lodestone.png" alt="Loading"> </td>
+                            </tr>
+                        </table>
+                </div>
+
+
+                <!-- support-section -->
+                <!--
+                <div class="support-section">
+                    <p>
+                        いつもこのツールをご利用いただき、誠にありがとうございます。もし少しでも「いいな」と感じていただけましたら、そっと応援していただけると、とても嬉しいです。いつもありがとうございます。
+                -->
+                        <!--Thank you so much for using this tool! If you find it even a little bit helpful or enjoyable, any small support would be greatly appreciated. Thanks as always! -->
+                <!--
+                    </p>
+                    <a href="https://www.amazon.jp/hz/wishlist/ls/2AF7376HKMRJ2?ref_=wl_share" style="color:#FFD43B">
+                        Support me from <i class="fa-brands fa-amazon fa-2xl" style="color: #FFD43B;"></i> </a>
+                -->
+                <!--
+                    	<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#080d3b', 'R6R51FHNU7');kofiwidget2.draw();</script>  
+                </div>
+                -->
+                
+
+                <!-- disclaimer-section -->
+                <div class="disclaimer-section">
+                    <p>
+                        ■ 当ツールについて ■
+                    </p>
+                    <p>このサイト上のツールについては、その動作を保証することはできません。当ツールにより生成された内容、および変換された内容等は、必ずご自分の環境で動作確認を行った上で利用してください。当ツールの利用により生じたトラブルや損害に対して、当サイトの管理人は責任を負いません。
+                    </p><br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="link-buttons">
+            <a href="./readme-en.html"> <i class="fa-solid fa-book"></i> English Manual </a>
+            <a href="../en/kbd/index.html"> <i class="fa-solid fa-keyboard"></i> アプリに戻る </a>
+        </div>
+        <p>Copyright (C) 2025 Lemila "FFXIV Unicode Typer" All Rights Reserved.</p>
+    </div>
+
+</body>
+
+</html>
+

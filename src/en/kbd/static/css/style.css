@@ -1,0 +1,380 @@
+﻿/* General Styles */
+
+/* ★追加 */
+html {
+    height: 100%;
+}
+
+
+
+/* body */
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* height: 100vh; */ /* Remove or comment out this line */
+    min-height: 100vh; /* Add this line */
+    display: flex;
+    /* align-items: center; */ /* ★削除 */
+    justify-content: center; /* 中央揃えは維持 */
+    overflow-x: hidden; /* Keep horizontal overflow hidden */
+}
+
+
+
+/* contariner */
+.container {
+    background-color: rgba(20, 20, 40, 0.8);
+    /* Semi-transparent dark panel */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    /* Neon glow */
+    padding: 20px;
+    width: auto; /* ★または '90%' でも可：デフォルト値は90% */
+    max-width: 960px; /* コンテンツエリアの幅を指定：Default max-width: 800px */
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto; /* Increased rows */
+    gap: 15px;
+}
+
+
+
+/* Header */
+.header {
+    text-align: center;
+    color: #f0f;
+    /* Magenta */
+    text-shadow: 2px 2px 4px #0ff;
+    /* Cyan glow */
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+font-size: 2em;
+font-family: 'Roboto Mono', monospace;
+color: #fff;
+margin-bottom: 5px;
+}
+
+
+/* 言語切り替え */
+.lang-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #0ff;
+    color: #fff;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.lang-button.selected {
+    background-color: #0ff;
+    color: #000;
+}
+
+.lang-button:hover {
+    background-color: rgba(0, 255, 255, 0.3);
+}
+
+
+
+/* 文字種切り替え */
+#character-type-switcher {
+    text-align: center;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+.char-type-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #0ff;
+    color: #fff;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.2);
+}
+
+.char-type-button.selected {
+    background-color: #0ff;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+}
+
+.char-type-button:hover {
+    background: rgba(0, 255, 255, 0.3);
+}
+
+
+
+/* Grid (PNG画像一覧を表示させるエリア) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #0ff;
+    border-radius: 8px;
+}
+
+.grid-container img {
+    /* width: 50px; */ /* Removed fixed width */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 5px;
+}
+
+.grid-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #0ff;
+}
+
+
+
+/* Preview （選択したPNG画像を表示させるエリア） */
+.preview-container {
+    margin-top: 5px;
+}
+
+.preview-title {
+    color: #0ff;
+    text-shadow: 1px 1px 2px #0ff;
+    margin-bottom: 10px;
+}
+
+.preview {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* width: ***px; */ /* Unset fixed width */
+    /* min-height: 60px; */ /* Removed fixed height */
+    /* height: auto; */ /* 試験的に追加 */
+    min-height: 40px; /* PNG画像サイズ(30px)より少し大きめに調整 */
+
+    border: 1px dashed #0ff;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
+
+    word-wrap: break-word;
+    display: flex;
+    flex-wrap: wrap; /* ★追加：折り返しを有効にする */
+    align-items: center;
+    /* justify-content: left; */ /* Changed to left alignment */
+    justify-content: flex-start; /* ★追加：左寄せ */
+
+    /* overflow-x: auto; */ /* Enable horizontal scroll if needed */ /* 試験的に削除 */
+    overflow-x: hidden; /* ★追加 */
+}
+
+.preview img {
+    height: 40px;
+    margin: 5px;
+}
+
+
+
+/* Control Buttons */
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.control-button {
+    /* background: linear-gradient(to bottom, #0ff, #0cc); */ /* デフォルト(文字種スイッチと同じ) */
+    /* background: linear-gradient(to bottom, #ffa500, #fffa500f8c00); */ /* オレンジから濃いオレンジ */
+    /* background: linear-gradient(to bottom, #ffff00, #ffd700); */ /* 黄色から金色 */
+    background: linear-gradient(to bottom, #e0e0e0, #ffa500); /* より明るいグレー(#e0e0e0)からオレンジ */
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 255, 255, 0.2);
+    font-size: 105%; /* ← ここに追加 (例: 1.2em) */
+}
+
+.control-button:hover {
+    /* background: linear-gradient(to bottom, #0cc, #0ff); */ /* デフォルト(文字種スイッチと同じ) */
+    /* background: linear-gradient(to bottom, #ff8c00, #ffa500); */ /* オレンジから濃いオレンジ */
+    /* background: linear-gradient(to bottom, #ffd700, #ffff00); */ /* 黄色から金色 */
+    background: linear-gradient(to bottom, #ffa500, #e0e0e0); /* ホバー時はオレンジから薄いグレー */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+}
+
+
+
+/* Info Area */
+.info-area {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.info-section {
+    width: 45%;
+}
+
+.info-section h3 {
+    color: #0ff;
+    text-shadow: 1px 1px 2px #0ff;
+}
+
+.donate-button {
+    background-color: #f0f;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+    background-color: #0ff;
+    color: #000;
+}
+
+
+
+/* Footer */
+.footer {
+    text-align: center; /* 子要素（figure）を中央寄せ */
+    margin-top: 20px;
+    color: #888;
+    font-size: 0.8em;
+}
+
+
+
+/* link-box */
+figure.link-box {
+  display: inline-block; /* figure をインラインブロックにする */
+  padding-right: 20px;
+  margin: 0; /* 必要に応じて margin を調整 */
+}
+
+
+
+/* <p>タグ */
+p {
+  clear: both;
+}
+
+
+/* <a>タグ = リンク箇所の見た目 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+
+
+
+/* Background Toggle */
+.bg-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.bg-button {
+    background: linear-gradient(to bottom, #f0f, #0ff);
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 255, 255, 0.2);
+}
+
+.bg-button:hover {
+    background: linear-gradient(to bottom, #0ff, #f0f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+}
+
+
+
+/* Backgrounds */
+.cyberpunk-bg {
+    /* background: linear-gradient(45deg, #f0f, #0ff); */
+    /* background: linear-gradient(to bottom right, #f0f, #0ff); */
+    background: linear-gradient(to right, #f0f, #0ff);
+    /* 【Solution 9】Changed to Magenta to Cyan */   
+    /* animation: bg-animation 5s infinite alternate; */
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+
+/* Custom Color Pattern */
+
+.gradient1 {
+    /* background: linear-gradient(135deg, #ffffff, #e0f8f0); */
+    /* 【Garlean Empire】左下から右上へ、白から淡い青緑へ (斜め135度、比率同じ) */
+    background: linear-gradient(to bottom, #f0fff0, #ffffff, #e0ffff);
+    /* 【Garlean Empire】薄い緑、白、薄い水色 (比率同じ) */
+}
+
+.gradient2 {
+    background: linear-gradient(to right, lightcoral, lightsalmon);
+    /* 【Limsa Lominsa / Kugane】ライトコーラル、ライトサーモン (比率同じ) */
+}
+
+.gradient3 {
+    background: linear-gradient(to right, rgba(255, 255, 0, 0.4), rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.4));
+    /* 【Gridania / Ul'dah】黄色、白、黒 (薄め) */
+}
+
+.gradient4 {
+    /* background: linear-gradient(to bottom, #a9a9a9, #0c107b); */
+    background: linear-gradient(to left, #a9a9a9, #0c107b);
+    /* 【Crystarium】濃いグレーから濃い青色へ (比率同じ) */
+}
+
+.gradient5 {
+    background: linear-gradient(to right, rgba(173, 255, 47, 0.6), rgba(0, 255, 127, 0.6), rgba(0, 128, 0, 0.6));
+    /* 【Old Sharlayan】黄緑、エメラルドグリーン、緑 (濃いめ、比率同じ) */
+}
+
+.gradient6 {
+    background: linear-gradient(to right, rgba(0, 128, 0, 0.4), rgba(218, 165, 32, 0.3), rgba(255, 0, 0, 0.6));
+    /* 【Tuliyollal】緑 40%, 黄土色 20%, 赤 40% (赤濃いめ) */
+}
+
+.gradient7 {
+  background: linear-gradient(to bottom, #ffffff, #f0f, #ffffff);
+  /* 【Il Mheg】 白、薄い紫、白 */
+}
+
+
+
+/* Icon Styles */

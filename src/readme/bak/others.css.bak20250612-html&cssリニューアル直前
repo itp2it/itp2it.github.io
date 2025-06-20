@@ -1,0 +1,189 @@
+﻿
+/* CSS */
+
+/* for "Instructions (Readme)" */
+/* for "Template" */
+/* for "Notice & Updates" */
+
+
+
+/* ここにスタイルを記述します */
+
+body {
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; */
+    font-family: 'Courier New', monospace;
+    /* 等幅フォントに変更 */
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #eee;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    /* フッターの高さ分を引く */
+    overflow-y: auto;
+    /* コンテンツが溢れたらスクロール */
+    border: 2px solid cyan;
+    /* シアンの枠線 */
+    box-shadow: 0 0 10px cyan;
+    /* シアンの光彩 */
+}
+
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    /* container内で伸び縮み */
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-info {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.body-section {
+    display: flex;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.body-left {
+    flex: 1;
+    padding: 10px;
+}
+
+.body-right {
+    flex: 2;
+    padding: 20px;
+}
+
+.notification-section {
+    background-color: #9a036d;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.support-section {
+    background-color: #422086;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.disclaimer-section {
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    position: fixed;
+    /* 常に表示 */
+    bottom: 0;
+}
+
+.link-buttons {
+    margin-top: 10px;
+}
+
+.link-buttons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+}
+
+.link-buttons a:hover {
+    background-color: #555;
+}
+
+
+
+h1 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 5px magenta;
+    /* マゼンタの文字光彩 */
+}
+
+h2 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 5px magenta;
+    /* マゼンタの文字光彩 */
+}
+
+
+h3 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+
+
+/* ここまでスタイルを記述します */
+

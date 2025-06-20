@@ -1,0 +1,29 @@
+﻿{
+  "name": "github-pages-minify-test",
+  "version": "1.0.0",
+  "description": "A test repository for GitHub Pages with GitHub Actions for minify.",
+  "main": "index.js",
+  "scripts": {
+
+    "clean": "rm -rf dist",
+
+    "minify-html": "node -e \"(async () => { const glob = require('glob'); const path = require('path'); const fs = require('fs'); const { minify } = require('html-minifier-terser'); const config = require('./html-minifier.json'); const files = glob.sync('src/**/*.html', { ignore: ['**/node_modules/**'] }); for (const file of files) { const outputPath = path.join('dist', path.relative('src', file)); fs.mkdirSync(path.dirname(outputPath), { recursive: true }); const html = fs.readFileSync(file, 'utf8'); const minifiedHtml = await minify(html, config); fs.writeFileSync(outputPath, minifiedHtml); } })();\"",
+
+    "minify-css": "node -e \"const glob = require('glob'); const path = require('path'); const fs = require('fs'); const CleanCSS = require('clean-css'); const cleancss = new CleanCSS(); glob.sync('src/**/*.css', { ignore: ['**/node_modules/**'] }).forEach(file => { const outputPath = path.join('dist', path.relative('src', file)); fs.mkdirSync(path.dirname(outputPath), { recursive: true }); const css = fs.readFileSync(file, 'utf8'); fs.writeFileSync(outputPath, cleancss.minify(css).styles); });\"",
+
+    "copy-assets": "node -e \"const glob = require('glob'); const path = require('path'); const fs = require('fs'); const copyFiles = glob.sync('src/**/*', { ignore: ['**/*.html', '**/*.css', '**/node_modules/**', '**/package.json', '**/package-lock.json', '**/README.md', '**/*bak*'] }); for (const file of copyFiles) { if (fs.statSync(file).isFile()) { const outputPath = path.join('dist', path.relative('src', file)); fs.mkdirSync(path.dirname(outputPath), { recursive: true }); fs.copyFileSync(file, outputPath); } }\"",
+
+    "build": "npm run clean && npm run minify-html && npm run minify-css && npm run copy-assets"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.1.0",
+    "copy-anything": "^2.0.0",
+    "glob": "^10.4.5",
+    "fs-extra": "^11.2.0"
+  }
+}

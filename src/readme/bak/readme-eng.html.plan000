@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readme (EN)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  
+    <style>
+        html {
+            height: 100%;
+        }
+      
+      
+        /* body */
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+      
+      
+        /* contariner */
+        .container {
+            background-color: rgba(20, 20, 40, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            padding: 20px;
+            width: auto;
+            max-width: 960px;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+            gap: 15px;
+        }
+
+      
+      
+        /* Header */
+        .header {
+            text-align: center;
+            color: #f0f;
+            text-shadow: 2px 2px 4px #0ff;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 2em;
+            font-family: 'Roboto Mono', monospace;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+
+
+        /* Grid (PNG画像一覧を表示させるエリア) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid #0ff;
+            border-radius: 8px;
+        }
+
+        .grid-container img {
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .grid-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #0ff;
+        }
+
+      
+      
+
+        /* Info Area */
+        .info-area {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .info-section {
+            width: 45%;
+        }
+
+        .info-section h3 {
+            color: #0ff;
+            text-shadow: 1px 1px 2px #0ff;
+        }
+
+        .donate-button {
+            background-color: #f0f;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-button:hover {
+            background-color: #0ff;
+            color: #000;
+        }
+
+      
+      
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.8em;
+        }
+
+      
+      
+        /* Background Toggle */
+        .bg-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .bg-button {
+            background: linear-gradient(to bottom, #f0f, #0ff);
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 255, 255, 0.2);
+        }
+
+        .bg-button:hover {
+            background: linear-gradient(to bottom, #0ff, #f0f);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+        }
+
+      
+      
+        /* Backgrounds */
+        .cyberpunk-bg {
+            background: linear-gradient(45deg, #f0f, #0ff);
+            animation: bg-animation 5s infinite alternate;
+        }
+
+        @keyframes bg-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+      
+      
+        /* Custom Color Pattern */
+
+        .gradient1 {
+            background: linear-gradient(to bottom, #f0fff0, #ffffff, #e0ffff);
+        }
+
+        .gradient2 {
+            background: linear-gradient(to right, lightcoral, lightsalmon);
+        }
+
+        .gradient3 {
+            background: linear-gradient(to right, rgba(255, 255, 0, 0.4), rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.4));
+        }
+
+        .gradient4 {
+            background: linear-gradient(to bottom, #a9a9a9, #000080);
+        }
+
+        .gradient5 {
+            background: linear-gradient(to right, rgba(173, 255, 47, 0.6), rgba(0, 255, 127, 0.6), rgba(0, 128, 0, 0.6));
+        }
+
+        .gradient6 {
+            background: linear-gradient(to right, rgba(0, 128, 0, 0.4), rgba(218, 165, 32, 0.3), rgba(255, 0, 0, 0.6));
+        }
+
+        /* 新しい都市のイメージのグラデーション */
+        .gradient7 {
+            background: linear-gradient(to bottom, #ffffff, #f0f, #ffffff);
+        }
+
+      
+      
+        /* Icon Styles */
+
+        /* ここから追加・変更 */
+
+        /* ヘッダーまたはサイドバーのスタイル（例：ヘッダー） */
+        .manual-header {
+            background-color: rgba(20, 20, 40, 0.9);
+            /* 既存のcontainerの背景色より少し濃くする */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #0ff;
+            /* 区切り線 */
+            display: flex;
+            justify-content: space-around;
+            /* メニュー項目を均等に配置 */
+            align-items: center;
+            /* 垂直方向中央揃え */
+        }
+
+        .manual-header a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .manual-header a:hover {
+            background-color: rgba(0, 255, 255, 0.2);
+        }
+
+        /* コンテンツ部分のスタイル */
+        .manual-content {
+            background-color: #f8f8ff;
+            /* 非常に薄いグレー */
+            color: #333;
+            /* 少し濃いめの文字色 */
+            padding: 20px;
+            border-radius: 0 0 15px 15px;
+            /* 下側のみ角丸 */
+            margin-top: 0;
+            /* ヘッダーとの隙間をなくす */
+        }
+
+        .manual-content h2 {
+            color: #007bff;
+            /* 少し明るめの青 */
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .manual-content p {
+            line-height: 1.6;
+        }
+
+        .manual-content ul {
+            list-style-type: square;
+        }
+
+        /* 戻るボタン */
+        .back-button {
+            display: block;
+            /* ブロック要素にする */
+            margin: 20px auto;
+            /* 上下20px、左右中央寄せ */
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: fit-content;
+            /* 内容に合わせて幅を調整 */
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 画面全体のレイアウト調整 */
+        .manual-container {
+            width: 80%;
+            /* 全体の幅を調整 */
+            max-width: 960px;
+            /* 最大幅をcontainerに合わせる */
+            margin: 20px auto;
+            /* 全体を中央寄せ */
+            border-radius: 15px;
+            overflow: hidden;
+            /* ヘッダーとコンテンツの角丸を揃える */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            /* containerと同じシャドウ */
+        }
+    </style>
+</head>
+
+  
+  
+<body class="gradient1">
+
+  <div class="manual-container">
+    
+        <div class="manual-header">
+            <a href="readme_en.html">Readme (EN)</a>
+            <a href="readme_ja.html">Readme (JA)</a>
+            <a href="manual_en.html">Manual (EN)</a>
+            <a href="manual_ja.html">Manual (JA)</a>
+        </div>
+  
+        <div class="manual-content">
+          
+            <h2>Readme (EN)</h2> 
+            <p>This section provides important information and notes about the WEB application.</p>
+            
+            <h3>Important Notes</h3>
+            <ul>
+                <li>Please ensure you have the latest version of your browser for optimal performance.</li>
+                <li>Cookies must be enabled to save your settings.</li>
+                <li>If you encounter any issues, please refer to the FAQ or contact support.</li>
+            </ul>
+    
+            <h3>Known Issues</h3>
+            <p>There are currently no known issues.</p>
+          
+            <a href="index.html" class="back-button">Back to Main</a>
+        </div>
+    
+    </div>
+</body>
+
+</html>

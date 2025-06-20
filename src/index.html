@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FFXIV Unicode Typer - Top Page</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-link {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+
+
+    <!-- Google tag (gtag.js)  --> <!-- [Google Analytics] -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT4X0ZW4SW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WT4X0ZW4SW');
+    </script>
+
+</head>
+
+
+
+<body>
+
+    <div class="container">
+
+        <h1>FFXIV Unicode Typer - Top Page</h1>
+
+<!--
+        <a href="https://ffxivpua.vercel.app/en/kbd/" class="language-link"> PC mode (Keyboard Layout)</a>
+        <a href="https://ffxivpua.vercel.app/en/alpha/" class="language-link"> Mobile mode (Alphabetical order)</a>
+-->
+
+        <a href="/en/kbd/" class="language-link"> PC mode (Keyboard Layout)</a>
+        <a href="/en/alpha/" class="language-link"> Mobile mode (Alphabetical order)</a>
+
+    </div>
+
+
+
+<!-- 日本語版／英語版への自動リダイレクト -->
+<!--
+    <script>
+        // 4秒後にリダイレクト
+        const redirectDelay = 4000;
+
+        function autoRedirect() {
+            const userLang = navigator.language || navigator.userLanguage; // ユーザーの言語設定を取得
+            if (userLang.startsWith('ja')) {
+                window.location.href = 'https://ffxivpua.vercel.app/ja/'; // 日本語ページへリダイレクト
+            } else {
+                window.location.href = 'https://ffxivpua.vercel.app/en/'; // 英語ページへリダイレクト
+            }
+        }
+
+        setTimeout(autoRedirect, redirectDelay);
+    </script>
+-->
+
+
+</body>
+
+</html>

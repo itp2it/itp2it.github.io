@@ -1,0 +1,204 @@
+﻿/* CSS */
+
+/* for "about.html" */
+
+
+/* ここにスタイルを記述します */
+
+body {
+    font-family: 'Courier New', monospace;
+    margin-bottom: 50px;
+    /* フッターの高さ＋αの余白を設定 */
+    padding: 0;
+    background-color: #111;
+    color: #eee;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    /* height: calc(100vh - 80px); /* この行を削除するか、height: auto; に変更 */
+    height: auto;
+    /* フッターの高さ分を引く */
+    overflow-y: auto;
+    /* コンテンツが溢れたらスクロール */
+    border: 2px solid cyan;
+    /* シアンの枠線 */
+    box-shadow: 0 0 10px cyan;
+    /* シアンの光彩 */
+}
+
+.header {
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-content {
+    margin: 20px;
+    padding: 20px;
+}
+
+.body-section {
+    margin-bottom: 20px;
+    padding: 40px 70px 50px 70px;
+    /* 上40px, 右70px, 下50px, 左70px */
+    background-color: #f8f8f8;
+    color: #333;
+    border-radius: 5px;
+}
+
+.footer {
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+.link-buttons {
+    margin-top: 10px;
+}
+
+.link-buttons a {
+    margin: 0 10px;
+    padding: 8px 15px;
+    text-decoration: none;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.link-buttons a:hover {
+    background-color: #555;
+}
+
+.underline {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    /* 下線の位置を下に5pxずらす */
+}
+
+
+
+hr {
+    /* width: 100%; もし必要なら明示的に指定 */
+    margin: 20px 0;
+    /* 上下の余白を調整 */
+    border: none;
+    /* デフォルトのボーダーをリセット */
+    border-top: 1px solid #555;
+    /* 上部に1pxの線を追加（色は適宜調整） */
+}
+
+h1 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 5px magenta;
+    /* マゼンタの文字光彩 */
+}
+
+h2 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 5px magenta;
+    /* マゼンタの文字光彩 */
+}
+
+
+h3 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+
+
+/* パンくずリストのスタイリング */
+#breadcrumbs {
+    margin: 0;
+    /* padding: 10px 10px; */
+    background-color: #f8f8f8;
+    /* body-sectionと同じ白系の背景色 */
+    color: #333;
+    /* 黒系の文字色 */
+    font-size: 0.9em;
+    text-align: left;
+    /* 左寄せ */
+}
+
+#breadcrumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#breadcrumbs li {
+    display: flex;
+    align-items: center;
+}
+
+/* 各項目の間に区切り文字を追加（最後の項目以外） */
+#breadcrumbs li:not(:last-child)::after {
+    content: ' > ';
+    margin: 0 5px;
+    color: #555;
+    /* 区切り文字の色を少し濃いめに */
+}
+
+#breadcrumbs li a {
+    text-decoration: none;
+    color: #007bff;
+    /* リンク色（例：青系で一般的なリンク色） */
+    white-space: nowrap;
+}
+
+#breadcrumbs li a:hover {
+    text-decoration: underline;
+}
+
+/* 現在のページを示す最後の項目のスタイル */
+#breadcrumbs li:last-child {
+    color: #555;
+    /* 現在のページのテキスト色を少し薄い黒に */
+    white-space: nowrap;
+}
+
+
+
+
+/* ここまでスタイルを記述します */

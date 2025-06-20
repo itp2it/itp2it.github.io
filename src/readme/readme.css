@@ -1,0 +1,181 @@
+﻿/* CSS */
+
+/* for "Instructions (Readme)" */
+
+
+/* ここにスタイルを記述します */
+
+body {
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; */
+    font-family: 'Courier New', monospace;     /* 等幅フォントに変更 */
+    background-color: #111;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    height: calc(100vh - 80px);
+    /* フッターの高さ分を引く */
+    overflow-y: auto;
+    /* コンテンツが溢れたらスクロール */
+    border: 2px solid cyan;
+    /* シアンの枠線 */
+    box-shadow: 0 0 10px cyan;
+    /* シアンの光彩 */
+}
+
+.header {
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.top-info {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.body-section {
+    background-color: #f8f8f8;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.notification-section {
+    background-color: #9a036d;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.support-section {
+    background-color: #422086;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.disclaimer-section {
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer {
+    width: 100%;      /* max-width: 1200px; */
+    position: fixed;  /* 常に表示 */
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    bottom: 0;
+}
+
+.link-buttons {
+    margin-top: 10px;
+}
+
+.link-buttons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+}
+
+.link-buttons a:hover {
+    background-color: #555;
+}
+
+
+
+table {
+    margin: auto;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+/* 特定のテーブルだけ、中身を中央寄せ */
+.center-table th {
+  text-align: center;
+}
+
+
+
+hr {
+    /* width: 100%; もし必要なら明示的に指定 */
+    margin: 20px 0;
+    /* 上下の余白を調整 */
+    border: none;
+    /* デフォルトのボーダーをリセット */
+    border-top: 1px solid #555;
+    /* 上部に1pxの線を追加（色は適宜調整） */
+}
+
+h1 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 5px magenta;
+    /* マゼンタの文字光彩 */
+}
+
+h2 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 5px magenta;
+    /* マゼンタの文字光彩 */
+}
+
+h3 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+
+
+/* ここまでスタイルを記述します */

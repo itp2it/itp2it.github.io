@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+
+<!-- ページ全体の言語設定 "en" or "ja" -->
+<html lang="en">
+
+
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FF14 Unicode Typer - PC mode</title>
+    <!--
+        <title>FF14 Unicode Typer - Mobile mode</title>
+    -->
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/en/kbd/static/css/style.css">
+
+
+    <!-- CSS for SweetAlert2 ([Main] Downloaded  -->
+    <link rel="stylesheet" href="/en/kbd/static/css/sweetalert2.min.css">
+
+    <!-- CSS for SweetAlert2 ([Backup] CDN version) -->
+    <!--
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    -->
+
+    <!-- Font Awesome -->
+    <link href="/en/kbd/assets/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="/en/kbd/assets/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="/en/kbd/assets/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="/en/kbd/assets/fontawesome/css/regular.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Google tag (gtag.js)  --> <!-- [Google Analytics] -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT4X0ZW4SW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WT4X0ZW4SW');
+    </script>
+
+    <!-- JavaScript for SweetAlert2 ([Main] Downloaded) -->
+    <script src="/en/kbd/static/js/sweetalert2.min.js"></script>
+
+    <!-- JavaScript for SweetAlert2 ([Backup] CDN version) -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    -->
+
+</head>
+
+
+<!-- body -->
+
+<body class="cyberpunk-bg">
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fa-solid fa-dragon"></i> FFXIV Unicode Typer </i><i class="fa-solid fa-keyboard"></i>
+            </h1>
+
+            <!-- レイアウト別ページの選択エリア -->
+            <div id="language-switcher">
+
+                <button class="lang-button selected">Keyboard</button>
+                <a href="/en/alpha/index.html" class="lang-button">Alphabetical</a>
+                <!--
+		<a href="/en/kbd/index.html" class="lang-button">Keyboard</a>
+		<button class="lang-button selected">Alphabetical</button>
+        -->
+
+            </div>
+
+        </header>
+
+
+        <!-- プレビュー欄 -->
+        <div class="preview-container">
+            <h2 class="preview-title">
+                <i class="fa-solid fa-eye"></i> Preview
+            </h2>
+
+            <div class="preview" id="preview"></div>
+        </div>
+
+
+        <!-- 入力文字種スイッチ -->
+        <div id="character-type-switcher">
+            <button class="char-type-button selected" data-type="alphanumeric">
+                <i class="fa-solid fa-a fa-border" style="--fa-border-width: 3px;"></i> Alphanumeric
+            </button>
+
+            <button class="char-type-button" data-type="symbols">
+                <i class="fa-solid fa-asterisk fa-border" style="--fa-border-width: 3px;"></i> Symbols & Other
+            </button>
+        </div>
+
+
+        <!-- 入力用ボタンの表示エリア [PNG画像] -->
+        <div class="grid-container" id="image-grid">
+        </div>
+
+
+        <!-- 操作ボタン -->
+        <div class="control-buttons">
+            <button class="control-button" id="backspace">
+                <i class="fas fa-backspace"></i> Backspace
+            </button>
+            <button class="control-button" id="clear">
+                <i class="fas fa-trash"></i> Clear
+            </button>
+            <button class="control-button" id="space">
+                <i class="fas fa-arrow-right"></i> Space
+            </button>
+            <button class="control-button" id="copy">
+                <i class="fas fa-clipboard"></i> Copy
+            </button>
+        </div>
+
+
+        <!-- 仕切り線 -->
+        <hr style="border: 1px solid #0ff; margin: 10px 0;">
+
+
+        <!------- お知らせエリア(全体) ------->
+        <div class="info-area">
+
+            <!-- お知らせエリア(左側) -->
+            <!-- マニュアルへのリンク：英語版 と 日本語版 -->
+            <div class="info-section">
+                <h3>
+                    <i class="fa-solid fa-book-open"></i> Instructions
+                </h3>
+
+                <p>Click on the characters to add them to the preview. Use the control buttons to edit or copy the text.
+                    For details, see the 'Readme'!</p>
+
+                <a href="/readme/readme-en.html" class="donate-button">
+                    <i class="fa-solid fa-book-open"></i> Read me
+                </a>
+
+                <p> 日本語マニュアルはこちら! </p>
+
+                <a href="/readme/readme-ja.html" class="donate-button">
+                    <i class="fa-solid fa-book-open"></i> 説明書
+                </a>
+            </div>
+
+
+            <!-- お知らせエリア(右側) (※3列の場合は中央) -->
+            <div class="info-section">
+
+
+                <!-- Template (テンプレート) へのリンク -->
+                <!-- 作成中：完成後に順次公開する
+                <h3>
+                    <i class="fa-solid fa-pen-to-square"></i> Template
+                </h3>
+
+                <p>Feel free to check the 'Template List' if you'd like to use premade words.</p>
+
+                <a href="####" class="donate-button">
+                    <i class="fa-solid fa-circle-right"></i> Template list
+                </a>
+                -->
+
+                <!-- 注意事項や更新履歴ページへのリンク -->
+                <h3>
+                    <i class="fa-regular fa-message"></i> Notice & Updates
+                </h3>
+
+                <p>Check out the important notes and updates.</p>
+
+                <a href="/readme/about-en.html" class="donate-button">
+                    <i class="fa-solid fa-circle-right"></i> View Details
+                </a>
+
+                <p> お知らせ & 更新履歴 </p>
+
+                <a href="/readme/about-ja.html" class="donate-button">
+                    <i class="fa-solid fa-circle-right"></i> View Details
+                </a>
+
+
+            </div>
+
+
+            <!-- お知らせエリア(右側)：2列の場合 -->
+            <!--
+        　　<div>              
+            </div>
+            -->
+
+
+            <!-- Ko-fi用 (一時停止) ココカラ ↓↓↓ -->
+            <!-- 
+            <div class="info-section">
+                <h3>
+                    <i class="fas fa-heart"></i> Support
+                </h3>
+
+                <p>Love using this tool? A little support goes a long way, and it’s truly appreciated!</p>
+            -->
+            <!-- 手書きカスタム版
+                <a href="#" class="donate-button">
+                    <i class="fas fa-coffee"></i> Donate
+		        -->
+
+            <!-- "By me a coffee"バナー -->
+            <!--  
+                <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                <script
+                    type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#080d3b', 'R6R51FHNU7'); kofiwidget2.draw();</script>
+            </div>
+            -->
+            <!-- Ko-fi用 (一時停止) ココマデ ↑↑↑ -->
+        </div>
+
+
+        <!-- 背景色変更ボタン -->
+        <div class="bg-toggle">
+            <button id="bg-toggle-button" class="bg-button">
+                <i class="fas fa-sync-alt"></i> Change BG
+            </button>
+        </div>
+
+
+        <!-- フッター -->
+        <footer class="footer">
+
+            <figure class="link-box">
+                <i class="fa-brands fa-x-twitter"></i> <a href="https://x.com/LemilaLink75801"> (formerly twitter) </a>
+            </figure>
+
+            <figure class="link-box">
+                <a href="https://jp.finalfantasyxiv.com/lodestone/"> LodeStone </a>
+            </figure>
+
+            <p>&copy; Copyright (C) 2025 Lemila "FFXIV Unicode Typer" All Rights Reserved.</p>
+
+            <p>記載されている会社名･製品名･システム名などは各社の商標または登録商標です。</p>
+            <p>&copy; Copyright (C) SQUARE ENIX CO., LTD. All Rights Reserved.</p>
+
+        </footer>
+
+
+        <!-- 広告エリア：予定地 -->
+        <!-- 
+	        <div class="ad-section">
+                <p> Googleアドセンスの広告を貼る </p>
+            </div>
+	    -->
+
+    </div>
+
+    <script src="/en/kbd/static/js/script.js"></script>
+</body>
+
+</html>
