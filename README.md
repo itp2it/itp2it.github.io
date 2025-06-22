@@ -1,3 +1,31 @@
+<div id="top"></div>
+
+<!-- 使用技術一覧 -->
+
+<!-- シールド一覧 -->
+<!-- 該当するプロジェクトの中から任意のものを選ぶ-->
+
+<p style="display: inline">
+  <!-- バックエンドの言語一覧 -->
+  <!-- バックエンドのフレームワーク一覧 -->
+  <!-- ミドルウェア一覧 -->
+  
+  <!-- フロントエンドのフレームワーク一覧 -->
+  <img src="https://img.shields.io/badge/-Html5-dimgray.svg?logo=html5&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Css3-1572B6.svg?logo=css3&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Javascript-F7DF1E.svg?logo=javascript&style=for-the-badge">
+  <!-- その他 -->
+　<img src="https://img.shields.io/badge/-Unicode-e0ffff.svg?logo=Unicode&style=for-the-badge">
+  <br>
+  <!-- インフラ一覧 -->
+  <img src="https://img.shields.io/badge/-Github-181717.svg?logo=github&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Github%20pages-dcdcdc.svg?logo=github&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Github%20actions-b0c4de.svg?logo=github&style=for-the-badge">
+  <img src="https://img.shields.io/badge/%E2%96%B2-Vercel-000000.svg?logo=&style=for-the-badge">
+</p>
+
+
+
 # FFXIV Unicode Typer - ポートフォリオ版
 
 ## 概要
