@@ -79,7 +79,7 @@ Gitリポジトリへのプッシュをトリガーとして、以下の処理�
  │   └── workflows/                 # ワークフローファイルを格納
  │       ├── deploy.yml             # ★ 自動デプロイのメインワークフロー定義ファイル（GitHub Pages用）
  │       │
- │       └── build-and-push-docker-image.yml
+ │       └── (build-and-push-docker-image.yml)
  │                                  # ◇ Dockerイメージビルド＆プッシュ用の定義ファイル (GitHub Packages用)
  │
  ├── (dist/)                        # ★ CI/CDプロセスで使われる一時ディレクトリ
@@ -99,13 +99,14 @@ Gitリポジトリへのプッシュをトリガーとして、以下の処理�
  ├── README.md                      # このプロジェクトの概要と説明（あなたが今読んでいるファイル）
  │
  │
- └── Dockerfile                     # ◇ /src 内のファイルをDockerイメージにするための Dockerfile
+ └── (Dockerfile)                     # ◇ /src 内のファイルをDockerイメージにするための Dockerfile
                                           (イメージはGitHub Packagesに格納される)
 
 
 
 ★付き：CI/CDのコントロールに関するファイル/フォルダ
-◇付き：Dockerイメージ作成に関するファイル
+
+◇付き：Dockerイメージ作成に関するファイル (後日追加した項目)
 
 ```
 
