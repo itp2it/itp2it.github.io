@@ -21,7 +21,6 @@
   <img src="https://img.shields.io/badge/-Github-181717.svg?logo=github&style=for-the-badge">
   <img src="https://img.shields.io/badge/-Github%20pages-dcdcdc.svg?logo=github&style=for-the-badge">
   <img src="https://img.shields.io/badge/-Github%20actions-b0c4de.svg?logo=github&style=for-the-badge">
-  <img src="https://img.shields.io/badge/%E2%96%B2-Vercel-000000.svg?logo=&style=for-the-badge">
 </p>
 
 
