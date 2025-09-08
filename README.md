@@ -205,10 +205,15 @@ GitHub Actions を使った今回のワークフローは、以下の3つのス�
 
 ---
 
+#### 概念整理：3つのファイルの役割と関係
 
+| ファイル                                  | 役割                        | 呼び出し元                    | 呼び出し先                                    |
+|---------------------------------------|---------------------------|--------------------------|------------------------------------------|
+| deploy.yml（GitHub Actions ワークフローファイル） | Node.js を使って CI/CD 処理を自動化 | GitHub Actions           | package.json のスクリプトを実行（例：npm run minify） |
+| package.json（Node.js パッケージ定義ファイル）     | スクリプトや依存関係を定義             | Node.js / GitHub Actions | html-minifier.json を参照するスクリプトを含む         |
+| html-minifier.json（HTML 圧縮設定ファイル）     | HTML 圧縮のルールを記述            | html-minifier コマンド       | 設定に従って HTML を圧                           |
 
-
-
+---
 
 
 
